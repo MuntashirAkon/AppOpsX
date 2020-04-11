@@ -37,7 +37,7 @@ def isWin(){
 String.metaClass.toPath = { -> toPath(delegate) }
 
 ext{
-    debugClassDir=project.buildDir.absolutePath+'/intermediates/javac/debug/compileDebugJavaWithJavac/classes'.toPath()
+    debugClassDir=project.buildDir.absolutePath+'/intermediates/javac/debug/classes'.toPath()
     commonJar=project.buildDir.absolutePath+'/appopsx-common.jar'.toPath()
     appopsxJar=project.buildDir.absolutePath+'/appopsx.jar'.toPath()
     appopsxOrigJar=project.buildDir.absolutePath+'/appopsx-orig.jar'.toPath()

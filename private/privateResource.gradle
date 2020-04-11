@@ -16,7 +16,7 @@ def getGitHash = { ->
 }
 
 ext{
-    JEK_FILE_DECRYPTED = rootProject.file("private/myapp.jks")
+    JEK_FILE_DECRYPTED = rootProject.file("D:\\repos\\test.jks")
     GIT_COMMIT_ID = getGitHash()
 }
 
@@ -140,13 +140,13 @@ task pushApkFile {
 
 task releaseResource{
     doLast{
-        JEK_FILE_DECRYPTED.delete()
+        //JEK_FILE_DECRYPTED.delete()
     }
 }
 
 tasks.whenTaskAdded { task ->
     println("$task.name")
     if (task.name == "assembleRelease") {
-        task.finalizedBy(pushApkFile,releaseResource)
+       //task.finalizedBy(pushApkFile,releaseResource)
     }
 }
