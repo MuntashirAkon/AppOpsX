@@ -31,8 +31,3 @@ public static final int *;
 
 -keep class com.umeng.** { *; }
 -keep class a.a.a.** { *; }
-
--keep class android.support.v4.view.ViewPager$OnPageChangeListener {*;}
--keep class android.support.v4.view.ViewPager {*;}
--keep class android.support.v4.view.PagerAdapter {*;}
--keep class android.support.v7.widget.SearchView { *;}

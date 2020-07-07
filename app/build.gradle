@@ -2,8 +2,6 @@ import java.util.zip.ZipFile
 
 apply plugin: 'com.android.application'
 
-apply from: "../private/privateResource.gradle"
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -12,10 +10,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        signingConfig signingConfigs.debug
-        //resConfigs "en","zh-rCN","zh-rTW","cs"
-        vectorDrawables.useSupportLibrary = true
-        manifestPlaceholders = [gitCommitId:"${GIT_COMMIT_ID}"]
     }
 
     aaptOptions {
@@ -30,21 +24,12 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
-    signingConfigs {
-        release{
-            storeFile JEK_FILE_DECRYPTED
-            keyAlias project.myEnv.KEY_ALIAS
-            storePassword project.myEnv.STORE_PASSWORD
-            keyPassword project.myEnv.KEY_PASSWORD
-        }
-    }
 
     buildTypes {
         release {
             shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
     }
 }
@@ -55,13 +40,14 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     compileOnly fileTree(include: ['*.jar'], dir: 'deps')
     implementation project(":opsxpro")
-    implementation "androidx.appcompat:appcompat:1.0.2"
-    implementation "androidx.recyclerview:recyclerview:$supportVersion"
-    implementation "androidx.preference:preference:1.1.0-alpha02"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation "androidx.legacy:legacy-preference-v14:$supportVersion"
-    implementation "com.google.android.material:material:$supportVersion"
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation "com.google.android.material:material:1.1.0"
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.github.promeg:tinypinyin:2.0.3'
     implementation 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0'
     implementation project(path: ':apicompat')

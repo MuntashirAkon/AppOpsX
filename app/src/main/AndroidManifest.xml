@@ -27,15 +27,12 @@
       <intent-filter>
         <!-- e.g. appops://details?id=com.zzzmode.appopsx -->
         <action android:name="android.intent.action.VIEW"/>
+
         <category android:name="android.intent.category.DEFAULT"/>
-        <data
-          android:host="details"
-          android:scheme="appops"
-          />
+
+        <data android:host="details" android:scheme="appops" />
       </intent-filter>
     </activity>
-
-
     <activity
       android:configChanges="keyboardHidden|orientation|screenSize"
       android:name=".ui.main.SettingsActivity"
@@ -67,8 +64,6 @@
       </intent-filter>
     </receiver>
 
-
-    <meta-data android:name="GIT_COMMIT_ID" android:value="${gitCommitId}\"/>
   </application>
 
 </manifest>
